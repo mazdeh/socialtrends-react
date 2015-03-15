@@ -1,4 +1,4 @@
 ---
-title: What's ^ on Twitter
+title: Yelp
 template: index.jade
 ---

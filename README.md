@@ -1,5 +1,6 @@
-# git-jquery
-Git One Page Client-side App
+# yelp-react
+
+Yelp Frontend powered by ReactJS
 
 
 # Deploy
@@ -9,4 +10,3 @@ Git One Page Client-side App
     $ git commit -a -m 'build'
 
     $ git subtree push --prefix build origin gh-pages
-

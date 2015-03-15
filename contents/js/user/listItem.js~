@@ -1,0 +1,25 @@
+var UserListItem = React.createClass({
+
+    handleClick: function(event) {
+        console.log('an item is clicked', this.props.user)
+        this.props.onListItemClicked(this.props.user.user_id)
+    },
+
+    render: function() {
+        
+        var user = this.props.user
+        var resOpen = (user.open) ? "Open" : "Closed"
+
+        return ( 
+            <div className="user row" >
+                <div className="three.columns" onClick={this.handleClick}>
+                    {user.name}                    
+                </div>
+                <div className="three.columns">
+                    {user.average_stars}   
+                </div>
+            </div>
+        )
+    }
+})
+
