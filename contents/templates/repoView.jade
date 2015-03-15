@@ -1,0 +1,24 @@
+br
+br
+each i in item
+	div#example-grid(style="background-color:#D8D9D0")
+		div.nine.columns(style='text-align: center')
+			div.row
+				b= i.name
+			div.row
+				div.three.columns 
+					b User:
+				div.eight.columns
+					=i.user.name
+
+			div.row
+				div.three.columns 
+					b Tweet:
+				div.eight.columns
+					=i.text
+
+			div.row
+				div.three.columns 
+					b Tweeted at:
+				div.eight.columns
+					=i.created_at
