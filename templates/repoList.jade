@@ -1,0 +1,7 @@
+br
+br
+each item in items
+    div.row 
+        div.twelve.columns
+            a(href="#", onClick='repoView("' + item.name + '")')
+                = item.name
