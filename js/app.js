@@ -1,12 +1,21 @@
-trendList()
-$( "#repos" ).on( "load", function( event ) {
-    trendList()
+$( "#doctors" ).on( "click", function( event ) {
+    React.render(
+        <DoctorList url='data/doctors.json.data'/>,
+        document.getElementById('content')
+    )
 })
 
-$( "#myrepos" ).on( "click", function( event ) {
-    googleList()
+$( "#users" ).on( "click", function( event ) {
+    React.render(
+        <UserList url='data/users.json.data'/>,
+        document.getElementById('content')
+    )
 })
 
-// $( "#myevents" ).on( "click", function( event ) {
-//     myEvents()
-// })
+$( "#restaurants" ).on( "click", function( event ) {
+    React.render(
+        <RestaurantList url='data/restaurants.json.data'/>,
+        document.getElementById('content')
+    )
+})
+
