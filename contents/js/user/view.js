@@ -10,12 +10,60 @@ var UserView = React.createClass({
             console.log("this user", this.state.user)
 
             return ( 
-                <div className="userView" >
-                    <h2 className="userName">
-                        {this.state.user.name}
-                    </h2>
-                    {this.state.user.woeid}
+                <div className="userView examplegrid" >
+                    <div className="twelve columns" >
+                        
+
+                        <div className="row" >
+
+                            <p className="userName name twelve columns" >
+                                {this.state.user.name}
+                            </p>
+                        </div>
+
+
+
+                        <div className="row" >
+                            <h6 className="three columns" >
+                                    Country: 
+                            </h6>
+
+                            <h6 className="nine columns" >
+                                {this.state.user.country}
+                            </h6>
+
+                        </div>
+
+                        <div className="row" >
+
+                            <h6 className="three columns">
+                                WOEID: 
+                            </h6>
+
+                            <h6 className="nine columns">
+                                {this.state.user.woeid}
+                            </h6>
+
+                        </div>
+
+                        <div className="row" >
+
+                            <h6 className="three columns">
+                                Parent ID: 
+                            </h6>
+
+                            <h6 className="nine columns">
+                                {this.state.user.parent_id}
+                            </h6>
+
+                        </div>
+
+
+
+                    </div>
+
                 </div>
+                
             )
 
         }else{
