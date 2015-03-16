@@ -2,7 +2,7 @@ var DoctorListItem = React.createClass({
 
     handleClick: function(event) {
         console.log('an item is clicked', this.props.doctor)
-        this.props.onListItemClicked(this.props.doctor.business_id)
+        this.props.onListItemClicked(this.props.doctor.query)
     },
 
     render: function() {
@@ -11,12 +11,9 @@ var DoctorListItem = React.createClass({
 
         return ( 
             <div className="doctor row" >
-                <div className="doctorName six columns" onClick={this.handleClick}>
+                <a className="doctorName six columns" onClick={this.handleClick}>
                     {doctor.name}                    
-                </div>
-                <div className="doctorCity six columns">
-                    {doctor.city}   
-                </div>
+                </a>
             </div>
         )
   }

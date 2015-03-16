@@ -7,6 +7,26 @@ var DoctorView = React.createClass({
     render: function() {
 
         if (this.state.doctor){
+            
+            console.log("this.state.doctor from view.js: ", this.state.doctor);
+
+            for (j = 0; j < this.state.doctor.length; j++) {
+                
+                    $.ajax({
+                        url: "https://socialtrends.herokuapp.com/statuses/oembed.json?id=" + this.state.doctor[j],
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log("view data: ", data)
+                            // this.setState({
+                            //     doctor: data.html
+                            // });
+                        }.bind(this),
+                        error: function(xhr, status, err) {
+                            console.error(this.props.url, status, err.toString());
+                        }.bind(this)
+                    });
+
+                }
 
             return ( 
                 <div className="doctorView examplegrid" >
@@ -16,48 +36,9 @@ var DoctorView = React.createClass({
                         <div className="row" >
 
                             <p className="doctorName name twelve columns" >
-                                {this.state.doctor.name}
+                                {this.state.doctor}
                             </p>
                         </div>
-
-
-
-                        <div className="row" >
-                            <h6 className="three columns" >
-                                    Address: 
-                            </h6>
-
-                            <h6 className="nine columns" >
-                                {this.state.doctor.full_address}
-                            </h6>
-
-                        </div>
-
-                        <div className="row" >
-
-                            <h6 className="three columns">
-                                Category: 
-                            </h6>
-
-                            <h6 className="nine columns">
-                                {this.state.doctor.categories}
-                            </h6>
-
-                        </div>
-
-                        <div className="row" >
-
-                            <h6 className="three columns">
-                                Stars: 
-                            </h6>
-
-                            <h6 className="nine columns">
-                                {this.state.doctor.stars}
-                            </h6>
-
-                        </div>
-
-
 
                     </div>
 

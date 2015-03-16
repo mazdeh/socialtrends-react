@@ -19,9 +19,22 @@ var UserList = React.createClass({displayName: 'UserList',
         });
     },
 
-    handleListItemClicked: function(user_id) {
-        var user = _.find(this.state.data, {user_id: user_id})
+    handleListItemClicked: function(name) {
+        var user = _.find(this.state.data, {name: name})
         this.refs.userView.setState({user: user})
+
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            success: function(data) {
+                this.setState({
+                    user: data
+                });
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
     },
 
 

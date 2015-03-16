@@ -1,4 +1,4 @@
 ---
-title: Yelp
+title: Twitter Trends
 template: index.jade
 ---

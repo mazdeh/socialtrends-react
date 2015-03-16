@@ -7,13 +7,14 @@ var UserView = React.createClass({
     render: function() {
         
         if (this.state.user){
+            console.log("this user", this.state.user)
 
             return ( 
                 <div className="userView" >
                     <h2 className="userName">
                         {this.state.user.name}
                     </h2>
-                    {this.state.user.yelping_since}
+                    {this.state.user.woeid}
                 </div>
             )
 
