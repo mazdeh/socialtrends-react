@@ -1,4 +1,4 @@
-var DoctorList = React.createClass({displayName: 'DoctorList',
+var TrendList = React.createClass({displayName: 'TrendList',
 
     getInitialState: function() {
         return {data: []};
@@ -10,7 +10,7 @@ var DoctorList = React.createClass({displayName: 'DoctorList',
             dataType: 'json',
             success: function(data) {
                 this.setState({
-                    data: data
+                    data: data[0].trends
                 });
             }.bind(this),
             error: function(xhr, status, err) {
@@ -19,9 +19,30 @@ var DoctorList = React.createClass({displayName: 'DoctorList',
         });
     },
 
-    handleListItemClicked: function(business_id){
-        var doctor = _.find(this.state.data, {business_id: business_id})
-        this.refs.doctorView.setState({doctor:doctor})
+    handleListItemClicked: function(query){
+        var doctor = _.find(this.state.data, {query: query})
+        var allStatuses = [];
+
+        $.ajax({
+            url: "https://socialtrends.herokuapp.com/search/tweets.json?q=" + doctor.query +"&result_type=popular",
+            dataType: 'json',
+            success: function(data) {
+                for (i=0; i < data.statuses.length; i++) { 
+                    allStatuses.push(data.statuses[i].id)
+                }
+
+                this.refs.doctorView.setState({
+                    doctor: allStatuses
+                });
+                // console.log("calling doctor from list.js", doctor)
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+
+        // console.log("this is doctor: ", data)
+        // this.refs.doctorView.setState({doctor:doctor.url})
     },
 
     render: function() {
