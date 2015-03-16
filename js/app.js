@@ -12,10 +12,3 @@ $( "#users" ).on( "click", function( event ) {
     )
 })
 
-$( "#restaurants" ).on( "click", function( event ) {
-    React.render(
-        <RestaurantList url='data/restaurants.json.data'/>,
-        document.getElementById('content')
-    )
-})
-

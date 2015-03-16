@@ -19,16 +19,16 @@ var UserList = React.createClass({displayName: 'UserList',
         });
     },
 
-    handleListItemClicked: function(user_id) {
-        var user = _.find(this.state.data, {user_id: user_id})
-        // this.refs.userView.setState({user: user})
+    handleListItemClicked: function(name) {
+        var user = _.find(this.state.data, {name: name})
+        this.refs.userView.setState({user: user})
 
         $.ajax({
-            url: "https://socialtrends.herokuapp.com/trends/available.json",
+            url: this.props.url,
             dataType: 'json',
             success: function(data) {
-                this.refs.UserView.setState({
-                    data: data
+                this.setState({
+                    user: data
                 });
             }.bind(this),
             error: function(xhr, status, err) {
