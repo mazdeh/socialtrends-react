@@ -7,7 +7,6 @@ var UserView = React.createClass({
     render: function() {
         
         if (this.state.user){
-            console.log("this user", this.state.user)
 
             return ( 
                 <div className="userView examplegrid" >
