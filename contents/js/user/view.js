@@ -53,7 +53,7 @@ var UserView = React.createClass({
                             </h6>
 
                             <h6 className="nine columns">
-                                {this.state.user.parent_id}
+                                {this.state.user.parentid}
                             </h6>
 
                         </div>
